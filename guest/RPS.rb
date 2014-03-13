@@ -9,7 +9,7 @@ class RPS
 
   def initialize(arr)
     @this_round = Array.new
-    @this_round = Array.new
+    @next_round = Array.new
     @tournament_data = arr.flatten
     validate_data
     build_first_round
@@ -28,6 +28,7 @@ class RPS
 
   def start
     play_this_round
+    play_next_round
   end
 
   def play_this_round
@@ -36,9 +37,17 @@ class RPS
       p2 = @this_round.shift
       winner = play_game(p1, p2)
       promote_winner(winner)
+    end
   end
 
   def play_next_round
+    if (@next_round.length == 1)
+      # tournament is finished
+    else
+      @this_round = @next_round
+      @next_round.clear
+      play_this_round
+    end
   end
 
   def play_game(p1, p2)
@@ -75,7 +84,7 @@ a1 = [[[["Robin", "R"], ["Jim", "P"]], [["Robin", "S"], ["Jim", "r"]]], [[["Robi
 # Invalid strategy - wrong letter
 a2 = [["Robin", "P"], ["Jim", "c"]]
 
-# Invalid strategy - wrong letter
+# Invalid strategy - multiple letters
 a3 = [["Robin", "RP"], ["Jim", "s"]]
 
 # Odd number of players
@@ -85,4 +94,4 @@ a4 = [["Robin", "r"], ["Jim", "p"], ["Jacqui", "S"]]
 a5 = [["Robin", "r"], ["Jim", "p"], ["Jacqui", "S"], ["Robin", "r"], ["Jim", "p"], ["Jacqui", "S"]]
 
 tournament = RPS.new(a1)
-tournament.begin
+tournament.start
