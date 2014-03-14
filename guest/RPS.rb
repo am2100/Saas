@@ -2,15 +2,18 @@ class WrongNumberOfPlayersError < StandardError ; end
 class NoSuchStrategyError < StandardError ; end
 
 class RPS
+
   @tournament_data
   @this_round
   @next_round
+
   attr_accessor :tournament_data, :this_round, :next_round
 
   def initialize(arr)
     @this_round = Array.new
     @next_round = Array.new
     @tournament_data = arr.flatten
+
     validate_data
     build_first_round
   end
@@ -22,11 +25,12 @@ class RPS
 
   def build_first_round
     until (@tournament_data.empty?)
-      @this_round << @tournament_data.shift(2)
+      hash = { player => @tournament_data.shift, strategy => @tournament_data.shift }
+      @next_round << hash
     end
   end
 
-  def start
+  def start # TODO
     play_this_round
     play_next_round
   end
