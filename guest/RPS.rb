@@ -25,37 +25,50 @@ class RPS
 
   def build_first_round
     until (@tournament_data.empty?)
-      hash = { player => @tournament_data.shift, strategy => @tournament_data.shift }
+      hash = { :player => @tournament_data.shift, :strategy => @tournament_data.shift }
       @next_round << hash
     end
   end
 
   def start # TODO
-    play_this_round
-    play_next_round
-  end
-
-  def play_this_round
-    until (@this_round.empty?)
-      p1 = @this_round.shift
-      p2 = @this_round.shift
-      winner = play_game(p1, p2)
-      promote_winner(winner)
+    puts @next_round.to_s
+    until (@next_round.length == 1)
+      @next_round.each { |n| @this_round << n }
+      @next_round.clear
+#      puts @this_round.to_s
+      play_next_round
+      puts @next_round.to_s
     end
   end
 
   def play_next_round
-    if (@next_round.length == 1)
-      # tournament is finished
-    else
-      @this_round = @next_round
-      @next_round.clear
-      play_this_round
+    until (@this_round.empty?)
+      p1 = @this_round.shift
+      p2 = @this_round.shift
+      winner = play_game(p1, p2)
+      puts winner
+      promote_winner(winner)
     end
   end
 
   def play_game(p1, p2)
-    
+    # Strategic options
+    rock     = /R/i
+    paper    = /P/i
+    scissors = /S/i
+
+    winner = p1 # player 1 has a slightly higher probability of
+                # winning, so assume in the first instance that
+                # they will win.
+
+    # Player 2 will win with the following strategy combinations.
+    if (
+         (p1[:strategy] =~ rock && p2[:strategy] =~ paper) ||
+         (p1[:strategy] =~ paper && p2[:strategy] =~ scissors) ||
+         (p1[:strategy] =~ scissors && p2[:strategy] =~ rock)
+       ) 
+      winner = p2
+    end
   end
 
   def promote_winner(winner)
