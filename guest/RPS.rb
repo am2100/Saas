@@ -30,25 +30,36 @@ class RPS
     end
   end
 
-  def start # TODO
-    puts @next_round.to_s
-    until (@next_round.length == 1)
-      @next_round.each { |n| @this_round << n }
-      @next_round.clear
-#      puts @this_round.to_s
-      play_next_round
-      puts @next_round.to_s
-    end
+  def start 
+    play_next_round
   end
 
   def play_next_round
+    puts "play_next_round"
+    if (@next_round.length > 1)
+      puts "@next_round.length #{@next_round.length}"
+      @this_round = @next_round.dup
+      @next_round.clear
+      puts "@this_round #{@this_round.to_s}"
+      puts "@next_round #{@next_round.to_s}"
+      play_this_round
+    else
+      puts "WINNER: #{@next_round[0][:player]} WITH: #{@next_round[0][:strategy]}"
+    end
+  end
+
+  def play_this_round
+    puts "play_this_round"
     until (@this_round.empty?)
       p1 = @this_round.shift
       p2 = @this_round.shift
-      winner = play_game(p1, p2)
-      puts winner
-      promote_winner(winner)
+      @next_round << play_game(p1, p2)
+#      winner = play_game(p1, p2)
+#      puts winner
+#      promote_winner(winner)
+      puts @next_round.to_s
     end
+    play_next_round
   end
 
   def play_game(p1, p2)
@@ -96,7 +107,7 @@ class RPS
 end
 
 # Valid upper and lowercase strategies
-a1 = [[[["Robin", "R"], ["Jim", "P"]], [["Robin", "S"], ["Jim", "r"]]], [[["Robin", "p"], ["Jim", "s"]], [["Robin", "R"], ["Jim", "P"]]]]
+a1 = [[[["Robin", "R"], ["Jim", "P"]], [["Jacqui", "S"], ["Pierre", "r"]]], [[["Zebedee", "p"], ["Sylvan", "s"]], [["Elly", "R"], ["Wilf", "P"]]]]
 
 # Invalid strategy - wrong letter
 a2 = [["Robin", "P"], ["Jim", "c"]]
