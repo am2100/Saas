@@ -10,6 +10,7 @@ class RPS
   attr_accessor :tournament_data, :this_round, :next_round
 
   def initialize(arr)
+    puts "INIT\n===="
     @this_round = Array.new
     @next_round = Array.new
     @tournament_data = arr.flatten
@@ -19,11 +20,13 @@ class RPS
   end
 
   def validate_data
+    puts "VALIDATE DATA\n============="
     raise WrongNumberOfPlayersError unless well_formed_tournament?
     raise NoSuchStrategyError unless valid_strategies?
   end
 
   def build_first_round
+    puts "BUILD FIRST ROUND\n================="
     until (@tournament_data.empty?)
       hash = { :player => @tournament_data.shift, :strategy => @tournament_data.shift }
       @next_round << hash
@@ -31,11 +34,12 @@ class RPS
   end
 
   def start 
+    puts "START\n====="
     play_next_round
   end
 
   def play_next_round
-    puts "play_next_round"
+    puts "PLAY NEXT ROUND\n==============="
     if (@next_round.length > 1)
       puts "@next_round.length #{@next_round.length}"
       @this_round = @next_round.dup
@@ -49,10 +53,13 @@ class RPS
   end
 
   def play_this_round
-    puts "play_this_round"
+    puts "PLAY THIS ROUND\n==============="
     until (@this_round.empty?)
+      puts "@this_round.length #{@this_round.length}"
       p1 = @this_round.shift
+      puts "p1 = #{p1.to_s}"
       p2 = @this_round.shift
+      puts "p2 = #{p2.to_s}"
       @next_round << play_game(p1, p2)
 #      winner = play_game(p1, p2)
 #      puts winner
@@ -63,6 +70,7 @@ class RPS
   end
 
   def play_game(p1, p2)
+    puts "PLAY GAME\n========="
     # Strategic options
     rock     = /R/i
     paper    = /P/i
@@ -83,15 +91,18 @@ class RPS
   end
 
   def promote_winner(winner)
+    puts "PROMOTE WINNER\n=============="
     @next_round << winner
   end
 
   def well_formed_tournament?
+    puts "WELL FORMED TOURNAMENT?\n======================"
     num_players = @tournament_data.length / 2
     Math.log(num_players)/Math.log(2) % 1 == 0.0
   end     
 
   def valid_strategies?
+    puts "VALID STRATEGIES?\n================="
     strategies = @tournament_data.values_at(* @tournament_data.each_index.select { |i| i.odd? })
     is_valid = true
 

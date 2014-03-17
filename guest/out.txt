@@ -1,0 +1,74 @@
+INIT
+====
+VALIDATE DATA
+=============
+WELL FORMED TOURNAMENT?
+======================
+VALID STRATEGIES?
+=================
+BUILD FIRST ROUND
+=================
+START
+=====
+PLAY NEXT ROUND
+===============
+@next_round.length 8
+@this_round [{:player=>"Robin", :strategy=>"R"}, {:player=>"Jim", :strategy=>"P"}, {:player=>"Jacqui", :strategy=>"S"}, {:player=>"Pierre", :strategy=>"r"}, {:player=>"Zebedee", :strategy=>"p"}, {:player=>"Sylvan", :strategy=>"s"}, {:player=>"Elly", :strategy=>"R"}, {:player=>"Wilf", :strategy=>"P"}]
+@next_round []
+PLAY THIS ROUND
+===============
+@this_round.length 8
+p1 = {:player=>"Robin", :strategy=>"R"}
+p2 = {:player=>"Jim", :strategy=>"P"}
+PLAY GAME
+=========
+[{:player=>"Jim", :strategy=>"P"}]
+@this_round.length 6
+p1 = {:player=>"Jacqui", :strategy=>"S"}
+p2 = {:player=>"Pierre", :strategy=>"r"}
+PLAY GAME
+=========
+[{:player=>"Jim", :strategy=>"P"}, {:player=>"Pierre", :strategy=>"r"}]
+@this_round.length 4
+p1 = {:player=>"Zebedee", :strategy=>"p"}
+p2 = {:player=>"Sylvan", :strategy=>"s"}
+PLAY GAME
+=========
+[{:player=>"Jim", :strategy=>"P"}, {:player=>"Pierre", :strategy=>"r"}, {:player=>"Sylvan", :strategy=>"s"}]
+@this_round.length 2
+p1 = {:player=>"Elly", :strategy=>"R"}
+p2 = {:player=>"Wilf", :strategy=>"P"}
+PLAY GAME
+=========
+[{:player=>"Jim", :strategy=>"P"}, {:player=>"Pierre", :strategy=>"r"}, {:player=>"Sylvan", :strategy=>"s"}, {:player=>"Wilf", :strategy=>"P"}]
+PLAY NEXT ROUND
+===============
+@next_round.length 4
+@this_round [{:player=>"Jim", :strategy=>"P"}, {:player=>"Pierre", :strategy=>"r"}, {:player=>"Sylvan", :strategy=>"s"}, {:player=>"Wilf", :strategy=>"P"}]
+@next_round []
+PLAY THIS ROUND
+===============
+@this_round.length 4
+p1 = {:player=>"Jim", :strategy=>"P"}
+p2 = {:player=>"Pierre", :strategy=>"r"}
+PLAY GAME
+=========
+[nil]
+@this_round.length 2
+p1 = {:player=>"Sylvan", :strategy=>"s"}
+p2 = {:player=>"Wilf", :strategy=>"P"}
+PLAY GAME
+=========
+[nil, nil]
+PLAY NEXT ROUND
+===============
+@next_round.length 2
+@this_round [nil, nil]
+@next_round []
+PLAY THIS ROUND
+===============
+@this_round.length 2
+p1 = 
+p2 = 
+PLAY GAME
+=========
