@@ -27,13 +27,23 @@ class Game
 
     # Player 2 will win with the following strategy combinations.
     if (
-         (p1.strategy =~ ROCK && p2.strategy =~ PAPER) ||
-         (p1.strategy =~ PAPER && p2.strategy =~ SCISSORS) ||
-         (p1.strategy =~ SCISSORS && p2.strategy =~ ROCK)
+         (@p1.strategy =~ ROCK && @p2.strategy =~ PAPER) ||
+         (@p1.strategy =~ PAPER && @p2.strategy =~ SCISSORS) ||
+         (@p1.strategy =~ SCISSORS && @p2.strategy =~ ROCK)
        ) 
       @winner = @p2
       @loser  = @p1
     end
+  end
+
+  def to_s
+    str_len = @p1.name.length > @p2.name.length ? @p1.name.length : @p2.name.length
+    str = "\n"
+    str << "#{@p1.name}\n"
+    str_len.times {|t| str << " "}
+    str << " > #{@winner.name}\n"
+    str << "#{@p2.name}\n"
+    puts str
   end
 end
 
@@ -52,12 +62,6 @@ class Round
 
     @winners = @games.collect {|g| g.winner}
     @losers  = @games.collect {|g| g.loser}  
-
-#    @games.each do |g|
-#      @winners << g.winner
-#      @losers  << g.loser
-#    end
-
   end
 end
 
@@ -75,30 +79,23 @@ class Tournament
     play_tournament
   end
 
-  def report
-    puts "@round #{@round}\n"
-    puts "@rounds.length #{@rounds.length}\n"
-    @rounds.each do |r|
-      puts r.to_s
-    end
+  def tournament_report
+
   end
 
   def play_tournament
     until(@players.length == 1)
       build_round
-#      report
-#      @rounds[@round - 1].each do |g|
-#        @players << g.winner.dup
-#      end
-#      @players = @rounds[@round - 1].each.select {|w| w.winner}
-      @players = @rounds[@round - 1].winners
-#      puts @players
+      rounds[-1].games.each {|g| g.to_s}
+#      puts t.rounds[-1].games[0].to_s      
+      @players = @rounds[@round - 1].winners.select {|w| w}
       @round += 1
     end
+    tournament_report
   end
 
   def create_players
-    puts "\nCREATE_PLAYERS\n=============\n"
+    puts "\nCREATE_PLAYERS\n==============\n"
     until (@tournament_data.empty?)
       player = Player.new(@tournament_data.shift, @tournament_data.shift)
       @players << player
@@ -157,5 +154,10 @@ a5 = [["Robin", "r"], ["Jim", "p"], ["Jacqui", "S"], ["Robin", "r"], ["Jim", "p"
 t = Tournament.new(a1)
 
 t.rounds.each do |r|
-  puts r.winners.length
+  puts "Winners: #{r.winners.length}"
+  puts "Losers : #{r.losers.length}"
+  puts "Games  : #{r.games.length}"
 end
+
+puts "Winner: #{t.rounds[-1].winners[0].name}"
+puts t.rounds[-1].games[0].to_s
