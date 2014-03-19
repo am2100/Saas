@@ -1,10 +1,12 @@
 class Game
 
+  @@longest_player_name
+
   ROCK     = /R/i
   PAPER    = /P/i
   SCISSORS = /S/i
 
-  attr_accessor :p1, :p2, :winner, :loser
+  attr_accessor :p1, :p2, :winner, :loser, :longest_player_name
 
   def initialize(p1, p2)
     @p1 = p1
@@ -25,12 +27,12 @@ class Game
   end
 
   def to_s
-    str_len = @p1.name.length > @p2.name.length ? @p1.name.length : @p2.name.length
+    str_len = @p1.to_s.length > @p2.to_s.length ? @p1.to_s.length : @p2.to_s.length
     str = "\n"
-    str << "#{@p1.name}\n"
+    str << "#{@p1.to_s}\n"
     str_len.times {|t| str << " "}
-    str << " > #{@winner.name}\n"
-    str << "#{@p2.name}\n"
+    str << " > #{@winner.to_s}\n"
+    str << "#{@p2.to_s}\n"
     puts str
   end
 end

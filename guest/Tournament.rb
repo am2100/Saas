@@ -1,14 +1,16 @@
 class Tournament
-  attr_accessor :round, :tournament_data, :rounds
+  attr_accessor :round, :tournament_data, :rounds, :longest_player_name
 
   def initialize(tournament_data)
     @round           = 1
+    @longest_player_name = 0
     @tournament_data = tournament_data.flatten
     @rounds          = Array.new
     @players         = Array.new
 
     validate_data
     create_players
+    set_longest_player_name
     play_tournament
   end
 
@@ -66,4 +68,13 @@ class Tournament
     return is_valid
   end
 
+  def set_longest_player_name
+    @players.each do |p|
+      if (p.name.length > @longest_player_name)
+        @longest_player_name = p.name.length
+        puts p.name
+        puts @longest_player_name
+      end
+    end    
+  end
 end

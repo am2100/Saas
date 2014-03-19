@@ -6,6 +6,7 @@ require './Tournament'
 class WrongNumberOfPlayersError < StandardError ; end
 class NoSuchStrategyError < StandardError ; end
 
+
 # Valid upper and lowercase strategies
 a1 = [[[["Robin", "R"], ["Jim", "P"]], [["Jacqui", "S"], ["Pierre", "r"]]], [[["Zebedee", "p"], ["Sylvan", "s"]], [["Elly", "R"], ["Wilf", "P"]]]]
 
@@ -23,11 +24,5 @@ a5 = [["Robin", "r"], ["Jim", "p"], ["Jacqui", "S"], ["Robin", "r"], ["Jim", "p"
 
 t = Tournament.new(a1)
 
-t.rounds.each do |r|
-  puts "Winners: #{r.winners.length}"
-  puts "Losers : #{r.losers.length}"
-  puts "Games  : #{r.games.length}"
-end
-
-puts "Winner: #{t.rounds[-1].winners[0].name}"
-puts t.rounds[-1].games[0].to_s
+p = Player.new("Jim Noble", "R")
+puts p.to_s

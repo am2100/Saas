@@ -5,5 +5,9 @@ class Player
     @name = name
     @strategy = strategy
   end
+
+  def to_s
+    "Player   : #{@name}\nStrategy : #{@strategy}\n"
+  end
 end
 

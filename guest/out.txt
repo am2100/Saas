@@ -1,6 +1,3 @@
-
-INIT
-====
 VALIDATE DATA
 =============
 WELL FORMED TOURNAMENT?
@@ -8,89 +5,92 @@ WELL FORMED TOURNAMENT?
 VALID STRATEGIES?
 =================
 
-BUILD FIRST ROUND
-=================
+CREATE_PLAYERS
+==============
+Robin
+5
+Jacqui
+6
+Zebedee
+7
 
-START
-=====
+BUILD ROUND 1
+=============
 
-PLAY NEXT ROUND
-===============
-@next_round.length 8
-@this_round [#<Player:0x000000013facb8 @name="Robin", @strategy="R">, #<Player:0x000000013fac90 @name="Jim", @strategy="P">, #<Player:0x000000013fac68 @name="Jacqui", @strategy="S">, #<Player:0x000000013fac40 @name="Pierre", @strategy="r">, #<Player:0x000000013fac18 @name="Zebedee", @strategy="p">, #<Player:0x000000013fabf0 @name="Sylvan", @strategy="s">, #<Player:0x000000013fabc8 @name="Elly", @strategy="R">, #<Player:0x000000013faba0 @name="Wilf", @strategy="P">]
-@next_round []
+Player   : Robin
+Strategy : R
 
-PLAY THIS ROUND
-===============
+                               > Player   : Jim
+Strategy : P
 
-PLAY GAME
-=========
-p1 #<Player:0x000000013facb8>
-p2 #<Player:0x000000013fac90>
+Player   : Jim
+Strategy : P
 
-@next_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">]
 
-PLAY GAME
-=========
-p1 #<Player:0x000000013fac68>
-p2 #<Player:0x000000013fac40>
+Player   : Jacqui
+Strategy : S
 
-@next_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">, #<Player:0x000000013fac40 @name="Pierre", @strategy="r">]
+                                > Player   : Pierre
+Strategy : r
 
-PLAY GAME
-=========
-p1 #<Player:0x000000013fac18>
-p2 #<Player:0x000000013fabf0>
+Player   : Pierre
+Strategy : r
 
-@next_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">, #<Player:0x000000013fac40 @name="Pierre", @strategy="r">, #<Player:0x000000013fabf0 @name="Sylvan", @strategy="s">]
 
-PLAY GAME
-=========
-p1 #<Player:0x000000013fabc8>
-p2 #<Player:0x000000013faba0>
+Player   : Zebedee
+Strategy : p
 
-@next_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">, #<Player:0x000000013fac40 @name="Pierre", @strategy="r">, #<Player:0x000000013fabf0 @name="Sylvan", @strategy="s">, #<Player:0x000000013faba0 @name="Wilf", @strategy="P">]
+                                 > Player   : Sylvan
+Strategy : s
 
-PLAY NEXT ROUND
-===============
-@next_round.length 4
-@this_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">, #<Player:0x000000013fac40 @name="Pierre", @strategy="r">, #<Player:0x000000013fabf0 @name="Sylvan", @strategy="s">, #<Player:0x000000013faba0 @name="Wilf", @strategy="P">]
-@next_round []
+Player   : Sylvan
+Strategy : s
 
-PLAY THIS ROUND
-===============
 
-PLAY GAME
-=========
-p1 #<Player:0x000000013fac90>
-p2 #<Player:0x000000013fac40>
+Player   : Elly
+Strategy : R
 
-@next_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">]
+                              > Player   : Wilf
+Strategy : P
 
-PLAY GAME
-=========
-p1 #<Player:0x000000013fabf0>
-p2 #<Player:0x000000013faba0>
+Player   : Wilf
+Strategy : P
 
-@next_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">, #<Player:0x000000013fabf0 @name="Sylvan", @strategy="s">]
 
-PLAY NEXT ROUND
-===============
-@next_round.length 2
-@this_round [#<Player:0x000000013fac90 @name="Jim", @strategy="P">, #<Player:0x000000013fabf0 @name="Sylvan", @strategy="s">]
-@next_round []
+BUILD ROUND 2
+=============
 
-PLAY THIS ROUND
-===============
+Player   : Jim
+Strategy : P
 
-PLAY GAME
-=========
-p1 #<Player:0x000000013fac90>
-p2 #<Player:0x000000013fabf0>
+                                > Player   : Jim
+Strategy : P
 
-@next_round [#<Player:0x000000013fabf0 @name="Sylvan", @strategy="s">]
+Player   : Pierre
+Strategy : r
 
-PLAY NEXT ROUND
-===============
 
-WINNER: Sylvan WITH: s
+Player   : Sylvan
+Strategy : s
+
+                                > Player   : Sylvan
+Strategy : s
+
+Player   : Wilf
+Strategy : P
+
+
+BUILD ROUND 3
+=============
+
+Player   : Jim
+Strategy : P
+
+                                > Player   : Sylvan
+Strategy : s
+
+Player   : Sylvan
+Strategy : s
+
+Player   : Jim Noble
+Strategy : R
