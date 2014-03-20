@@ -1,21 +1,31 @@
+class WrongNumberOfPlayersError < StandardError ; end
+class NoSuchStrategyError < StandardError ; end
+
 class Tournament
   attr_accessor :round, :tournament_data, :rounds, :longest_player_name
 
   def initialize(tournament_data)
     @round           = 1
-    @longest_player_name = 0
     @tournament_data = tournament_data.flatten
     @rounds          = Array.new
     @players         = Array.new
 
     validate_data
     create_players
-    set_longest_player_name
     play_tournament
   end
 
-  def tournament_report
-
+  def to_s
+    t_str = ""
+    @rounds.each_with_index do |round, index|
+      r_str = "ROUND #{index + 1}\n"
+      r_str.length.times {|t| r_str << "="}
+      r_str << "\n\n"
+      round.games.each {|g| r_str << g.to_s}
+      r_str << "\n"
+      t_str << r_str
+    end
+    return t_str
   end
 
   def play_tournament
@@ -25,11 +35,11 @@ class Tournament
       @players = @rounds[@round - 1].winners.select {|w| w}
       @round += 1
     end
-    tournament_report
+#    tournament_report
   end
 
   def create_players
-    puts "\nCREATE_PLAYERS\n==============\n"
+    # puts "\nCREATE_PLAYERS\n==============\n"
     until (@tournament_data.empty?)
       player = Player.new(@tournament_data.shift, @tournament_data.shift)
       @players << player
@@ -37,25 +47,25 @@ class Tournament
   end
 
   def build_round
-    puts "\nBUILD ROUND #{@round}\n============="
+    # puts "\nBUILD ROUND #{@round}\n============="
     @rounds << Round.new(@players)
     @players.clear
   end
 
   def validate_data
-    puts "VALIDATE DATA\n============="
+    # puts "VALIDATE DATA\n============="
     raise WrongNumberOfPlayersError unless well_formed_tournament?
     raise NoSuchStrategyError unless valid_strategies?
   end
 
   def well_formed_tournament?
-    puts "WELL FORMED TOURNAMENT?\n======================"
+    # puts "WELL FORMED TOURNAMENT?\n======================"
     num_players = @tournament_data.length / 2
     Math.log(num_players)/Math.log(2) % 1 == 0.0
   end     
 
   def valid_strategies?
-    puts "VALID STRATEGIES?\n================="
+    # puts "VALID STRATEGIES?\n================="
     strategies = @tournament_data.values_at(* @tournament_data.each_index.select { |i| i.odd? })
     is_valid = true
 
@@ -68,13 +78,4 @@ class Tournament
     return is_valid
   end
 
-  def set_longest_player_name
-    @players.each do |p|
-      if (p.name.length > @longest_player_name)
-        @longest_player_name = p.name.length
-        puts p.name
-        puts @longest_player_name
-      end
-    end    
-  end
 end

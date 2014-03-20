@@ -14,4 +14,10 @@ class Round
     @winners = @games.collect {|g| g.winner}
     @losers  = @games.collect {|g| g.loser}  
   end
+
+  def to_s
+    str = ""
+    @games.each {|g| str << g.to_s}
+    return str
+  end
 end

@@ -3,10 +3,6 @@ require './Game'
 require './Round'
 require './Tournament'
 
-class WrongNumberOfPlayersError < StandardError ; end
-class NoSuchStrategyError < StandardError ; end
-
-
 # Valid upper and lowercase strategies
 a1 = [[[["Robin", "R"], ["Jim", "P"]], [["Jacqui", "S"], ["Pierre", "r"]]], [[["Zebedee", "p"], ["Sylvan", "s"]], [["Elly", "R"], ["Wilf", "P"]]]]
 
@@ -24,5 +20,4 @@ a5 = [["Robin", "r"], ["Jim", "p"], ["Jacqui", "S"], ["Robin", "r"], ["Jim", "p"
 
 t = Tournament.new(a1)
 
-p = Player.new("Jim Noble", "R")
-puts p.to_s
+puts t.to_s

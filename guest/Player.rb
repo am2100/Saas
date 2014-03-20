@@ -7,7 +7,7 @@ class Player
   end
 
   def to_s
-    "Player   : #{@name}\nStrategy : #{@strategy}\n"
+    "#{@name} [#{@strategy.upcase}]"
   end
 end
 
