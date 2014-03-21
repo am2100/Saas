@@ -1,3 +1,20 @@
+# Author: Jim Noble
+# jimnoble@xjjz.co.uk
+#
+# Tournament.rb
+#
+# A Rock/Paper/Scissors tournament.
+#
+# Takes an array of ["Player", "Strategy"] arrays. The Array can be
+# nested to an arbitrary depth. Array must contain all valid
+# strategies, and contain n^2 players or a validation error will be
+# thrown.
+#
+# a1 = [[[["Robin", "R"], ["Jim", "P"]], [["Jacqui", "S"], ["Pierre", "r"]]], [[["Zebedee", "p"], ["Sylvan", "s"]], [["Elly", "R"], ["Wilf", "P"]]]]
+# t = Tournament.new(a1)
+#
+# p.to_s
+
 class WrongNumberOfPlayersError < StandardError ; end
 class NoSuchStrategyError < StandardError ; end
 
@@ -18,7 +35,7 @@ class Tournament
   def to_s
     t_str = ""
     @rounds.each_with_index do |round, index|
-      r_str = "ROUND #{index + 1}\n"
+      r_str = "\nROUND #{index + 1}\n"
       r_str.length.times {|t| r_str << "="}
       r_str << "\n\n"
       round.games.each {|g| r_str << g.to_s}
@@ -35,11 +52,9 @@ class Tournament
       @players = @rounds[@round - 1].winners.select {|w| w}
       @round += 1
     end
-#    tournament_report
   end
 
   def create_players
-    # puts "\nCREATE_PLAYERS\n==============\n"
     until (@tournament_data.empty?)
       player = Player.new(@tournament_data.shift, @tournament_data.shift)
       @players << player
@@ -47,25 +62,21 @@ class Tournament
   end
 
   def build_round
-    # puts "\nBUILD ROUND #{@round}\n============="
     @rounds << Round.new(@players)
     @players.clear
   end
 
   def validate_data
-    # puts "VALIDATE DATA\n============="
     raise WrongNumberOfPlayersError unless well_formed_tournament?
     raise NoSuchStrategyError unless valid_strategies?
   end
 
   def well_formed_tournament?
-    # puts "WELL FORMED TOURNAMENT?\n======================"
     num_players = @tournament_data.length / 2
     Math.log(num_players)/Math.log(2) % 1 == 0.0
   end     
 
   def valid_strategies?
-    # puts "VALID STRATEGIES?\n================="
     strategies = @tournament_data.values_at(* @tournament_data.each_index.select { |i| i.odd? })
     is_valid = true
 

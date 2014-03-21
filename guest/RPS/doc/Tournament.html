@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+
+  <title>Class: Tournament</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./Tournament_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="Tournament.rb">Tournament.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-build_round">#build_round</a></li>
+          
+          <li><a href="#method-i-create_players">#create_players</a></li>
+          
+          <li><a href="#method-i-play_tournament">#play_tournament</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
+          
+          <li><a href="#method-i-valid_strategies-3F">#valid_strategies?</a></li>
+          
+          <li><a href="#method-i-validate_data">#validate_data</a></li>
+          
+          <li><a href="#method-i-well_formed_tournament-3F">#well_formed_tournament?</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Game.html">Game</a></li>
+        
+          <li><a href="./NoSuchStrategyError.html">NoSuchStrategyError</a></li>
+        
+          <li><a href="./Player.html">Player</a></li>
+        
+          <li><a href="./Round.html">Round</a></li>
+        
+          <li><a href="./Tournament.html">Tournament</a></li>
+        
+          <li><a href="./WrongNumberOfPlayersError.html">WrongNumberOfPlayersError</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Tournament</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="longest_player_name-attribute-method" class="method-detail">
+          <a name="longest_player_name"></a>
+          
+          <a name="longest_player_name="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">longest_player_name</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="round-attribute-method" class="method-detail">
+          <a name="round"></a>
+          
+          <a name="round="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">round</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="rounds-attribute-method" class="method-detail">
+          <a name="rounds"></a>
+          
+          <a name="rounds="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">rounds</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="tournament_data-attribute-method" class="method-detail">
+          <a name="tournament_data"></a>
+          
+          <a name="tournament_data="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">tournament_data</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(tournament_data)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">tournament_data</span>)
+  <span class="ruby-ivar">@round</span>           = <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@tournament_data</span> = <span class="ruby-identifier">tournament_data</span>.<span class="ruby-identifier">flatten</span>
+  <span class="ruby-ivar">@rounds</span>          = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@players</span>         = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">validate_data</span>
+  <span class="ruby-identifier">create_players</span>
+  <span class="ruby-identifier">play_tournament</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="build_round-method" class="method-detail ">
+          <a name="method-i-build_round"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">build_round</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="build_round-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_round</span>
+  <span class="ruby-ivar">@rounds</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Round</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@players</span>)
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- build_round-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- build_round-method -->
+
+      
+        <div id="create_players-method" class="method-detail ">
+          <a name="method-i-create_players"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_players</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_players-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_players</span>
+  <span class="ruby-keyword">until</span> (<span class="ruby-ivar">@tournament_data</span>.<span class="ruby-identifier">empty?</span>)
+    <span class="ruby-identifier">player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@tournament_data</span>.<span class="ruby-identifier">shift</span>, <span class="ruby-ivar">@tournament_data</span>.<span class="ruby-identifier">shift</span>)
+    <span class="ruby-ivar">@players</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">player</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_players-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_players-method -->
+
+      
+        <div id="play_tournament-method" class="method-detail ">
+          <a name="method-i-play_tournament"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">play_tournament</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="play_tournament-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">play_tournament</span>
+  <span class="ruby-keyword">until</span>(<span class="ruby-ivar">@players</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">build_round</span>
+    <span class="ruby-identifier">rounds</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">games</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">g</span><span class="ruby-operator">|</span> <span class="ruby-identifier">g</span>.<span class="ruby-identifier">to_s</span>}
+    <span class="ruby-ivar">@players</span> = <span class="ruby-ivar">@rounds</span>[<span class="ruby-ivar">@round</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">winners</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">w</span><span class="ruby-operator">|</span> <span class="ruby-identifier">w</span>}
+    <span class="ruby-ivar">@round</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- play_tournament-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- play_tournament-method -->
+
+      
+        <div id="to_s-method" class="method-detail ">
+          <a name="method-i-to_s"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="to_s-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">t_str</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-ivar">@rounds</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">round</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r_str</span> = <span class="ruby-node">&quot;\nROUND #{index + 1}\n&quot;</span>
+    <span class="ruby-identifier">r_str</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">times</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;=&quot;</span>}
+    <span class="ruby-identifier">r_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+    <span class="ruby-identifier">round</span>.<span class="ruby-identifier">games</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">g</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">g</span>.<span class="ruby-identifier">to_s</span>}
+    <span class="ruby-identifier">r_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+    <span class="ruby-identifier">t_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">r_str</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">t_str</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- to_s-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_s-method -->
+
+      
+        <div id="valid_strategies-3F-method" class="method-detail ">
+          <a name="method-i-valid_strategies-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">valid_strategies?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="valid_strategies-3F-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_strategies?</span>
+  <span class="ruby-identifier">strategies</span> = <span class="ruby-ivar">@tournament_data</span>.<span class="ruby-identifier">values_at</span>(* <span class="ruby-ivar">@tournament_data</span>.<span class="ruby-identifier">each_index</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">odd?</span> })
+  <span class="ruby-identifier">is_valid</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">strategies</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[RPS]/</span>) <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">is_valid</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">is_valid</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- valid_strategies-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- valid_strategies-3F-method -->
+
+      
+        <div id="validate_data-method" class="method-detail ">
+          <a name="method-i-validate_data"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">validate_data</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="validate_data-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validate_data</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">WrongNumberOfPlayersError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">well_formed_tournament?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoSuchStrategyError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid_strategies?</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- validate_data-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- validate_data-method -->
+
+      
+        <div id="well_formed_tournament-3F-method" class="method-detail ">
+          <a name="method-i-well_formed_tournament-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">well_formed_tournament?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="well_formed_tournament-3F-source">
+<pre>
+<span class="ruby-comment"># File Tournament.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">well_formed_tournament?</span>
+  <span class="ruby-identifier">num_players</span> = <span class="ruby-ivar">@tournament_data</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+  <span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-identifier">num_players</span>)<span class="ruby-operator">/</span><span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">%</span> <span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">0.0</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- well_formed_tournament-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- well_formed_tournament-3F-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,3 +1,18 @@
+# Author: Jim Noble
+# jimnoble@xjjz.co.uk
+#
+# Game.rb
+#
+# A Game of Rock/Paper/Scissors
+#
+# Requires two Players. See Players.rb
+#
+# p1 = Player.new("Jim", "R")
+# p2 = Player.new("Jacqui", "P")
+# g = Game.new(p1, p2)
+#
+# g.to_s
+
 class Game
 
   @@longest_player_name = 0
@@ -6,7 +21,7 @@ class Game
   PAPER    = /P/i
   SCISSORS = /S/i
 
-  attr_accessor :p1, :p2, :winner, :loser, :longest_player_name
+  attr_accessor :winner, :loser
 
   def initialize(p1, p2)
     @p1 = p1
@@ -33,19 +48,9 @@ class Game
 
   def to_s
     str = ""
-    padding = "    "
-    underline = "-----------"
-    @@longest_player_name.times {|p| padding << " "}
-    (@@longest_player_name * 2).times {|u| underline << "-"}
-    str << "#{@p1.to_s}\n" << "#{padding} > #{@winner.to_s}\n#{@p2.to_s}\n#{underline}\n"
-  end
-
-  def longest_player_name
-    @@longest_player_name
-  end
-
-  def longest_player_name=(name)
-    @@longest_player_name = name
+    padding = "----"
+    @@longest_player_name.times {|p| padding << "-"}
+    str << "#{@p1.to_s}\n" << "#{padding}> #{@winner.to_s}\n#{@p2.to_s}\n\n"
   end
 
 end
