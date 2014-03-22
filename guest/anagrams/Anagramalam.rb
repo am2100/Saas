@@ -1,21 +1,52 @@
 # Author: Jim Noble
 # jimnoble@xjjz.co.uk
 #
-# anagrams.rb
+# Anagramalam.rb
 #
 # A program that takes a list of words and outputs an array of anagram arrays
 #
 
 class Anagramalam
   def initialize(words)
-    @input = words
-    @output = Hash.new
+    @input        = Array.new
+    @output       = Array.new
+    @longest_word = 0
+
+    IO.foreach(words) do |w|
+      if (w.chomp.length > @longest_word)
+        @longest_word = w.length
+      end
+    end
+
+    @input = Array.new(@longest_word + 1) {Array.new}
+
+    IO.foreach(words) do |w|
+      w.chomp!
+      @input[w.length] << w
+    end
+    
+    combine_anagrams
   end
 
-  def combine_anagrams(@input)
-    # read in each line of the file
-    
-    # sort line alphabetically
+  def make_hash_key(str)
+    str.downcase.chars.sort.join.to_sym
+  end
+
+  def combine_anagrams
+    @anagrams = Hash.new
+
+    @input.each do |a|
+      a.each do |str|
+        key = make_hash_key(str)
+        if @anagrams.has_key?(key)
+          @anagrams[key] << str
+        else
+          @anagrams[key] = Array.new << str
+        end
+      end
+    end
+
+    @anagrams.each {|a| puts a.to_s}
 
     # check to see if the sorted line already exists as a hash name
 
