@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+
+  <title>Class: Anagramalam</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./Anagramalam_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="Anagramalam.rb">Anagramalam.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-combine_anagrams">#combine_anagrams</a></li>
+          
+          <li><a href="#method-i-make_hash_key">#make_hash_key</a></li>
+          
+          <li><a href="#method-i-print_array">#print_array</a></li>
+          
+          <li><a href="#method-i-print_hash">#print_hash</a></li>
+          
+          <li><a href="#method-i-print_most_interesting">#print_most_interesting</a></li>
+          
+          <li><a href="#method-i-print_only_anagrams">#print_only_anagrams</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Anagramalam.html">Anagramalam</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Anagramalam</h1>
+
+    <div id="description" class="description">
+      
+<p>Author: Jim Noble jimnoble@xjjz.co.uk</p>
+
+<p><a href="Anagramalam_rb.html">Anagramalam.rb</a></p>
+
+<p>A program that takes a list of words and outputs an array of anagram arrays</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(words)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <ul><li>
+<p>Find the longest word in the dictionary.</p>
+</li><li>
+<p>Create an array of arrays, one for every possible length of word plus one,
+so that a word's length can act as its index.</p>
+</li><li>
+<p>Add each word in the dictionary to an array using word length as an index.</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File Anagramalam.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">words</span>)
+
+  <span class="ruby-ivar">@longest_word</span> = <span class="ruby-value">0</span>
+  
+  <span class="ruby-constant">IO</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-identifier">words</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">w</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">w</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@longest_word</span>)
+      <span class="ruby-ivar">@longest_word</span> = <span class="ruby-identifier">w</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@input</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@longest_word</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) {<span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>}
+
+  <span class="ruby-constant">IO</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-identifier">words</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">w</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">w</span>.<span class="ruby-identifier">chomp!</span>
+    <span class="ruby-ivar">@input</span>[<span class="ruby-identifier">w</span>.<span class="ruby-identifier">length</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">w</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">combine_anagrams</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="combine_anagrams-method" class="method-detail ">
+          <a name="method-i-combine_anagrams"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">combine_anagrams</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <ul><li>
+<p>Create a hash.</p>
+</li><li>
+<p>Create lowercase alphabetically sorted word symbols from each word and use
+them as hash keys.</p>
+</li><li>
+<p>Collect anagrams in arrays referenced by these keys.</p>
+</li><li>
+<p>Store the arrays in the output array.</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="combine_anagrams-source">
+<pre>
+<span class="ruby-comment"># File Anagramalam.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">combine_anagrams</span>
+  <span class="ruby-ivar">@anagrams</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-ivar">@input</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">str</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">make_hash_key</span>(<span class="ruby-identifier">str</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@anagrams</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>)
+        <span class="ruby-ivar">@anagrams</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">str</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@anagrams</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">str</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@output</span> = <span class="ruby-ivar">@anagrams</span>.<span class="ruby-identifier">values</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- combine_anagrams-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- combine_anagrams-method -->
+
+      
+        <div id="make_hash_key-method" class="method-detail ">
+          <a name="method-i-make_hash_key"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">make_hash_key</span><span
+              class="method-args">(str)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <ul><li>
+<p>Take a word and turn it into a lowercase alphabetically sorted symbol.</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="make_hash_key-source">
+<pre>
+<span class="ruby-comment"># File Anagramalam.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_hash_key</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">to_sym</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- make_hash_key-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- make_hash_key-method -->
+
+      
+        <div id="print_array-method" class="method-detail ">
+          <a name="method-i-print_array"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">print_array</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="print_array-source">
+<pre>
+<span class="ruby-comment"># File Anagramalam.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_array</span>
+  <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span>}
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- print_array-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- print_array-method -->
+
+      
+        <div id="print_hash-method" class="method-detail ">
+          <a name="method-i-print_hash"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">print_hash</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="print_hash-source">
+<pre>
+<span class="ruby-comment"># File Anagramalam.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_hash</span>
+  <span class="ruby-ivar">@anagrams</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span>}
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- print_hash-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- print_hash-method -->
+
+      
+        <div id="print_most_interesting-method" class="method-detail ">
+          <a name="method-i-print_most_interesting"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">print_most_interesting</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <ul><li>
+<p>Print the word or words with the most anagrams in the dictionary</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="print_most_interesting-source">
+<pre>
+<span class="ruby-comment"># File Anagramalam.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_most_interesting</span>
+  <span class="ruby-identifier">most_interesting</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">most_interesting</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">most_interesting</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">most_interesting</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- print_most_interesting-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- print_most_interesting-method -->
+
+      
+        <div id="print_only_anagrams-method" class="method-detail ">
+          <a name="method-i-print_only_anagrams"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">print_only_anagrams</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <ul><li>
+<p>Don't bother printing words without anagrams.</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="print_only_anagrams-source">
+<pre>
+<span class="ruby-comment"># File Anagramalam.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_only_anagrams</span>
+  <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- print_only_anagrams-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- print_only_anagrams-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+
