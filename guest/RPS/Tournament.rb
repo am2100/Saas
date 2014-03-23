@@ -13,7 +13,7 @@
 # a1 = [[[["Robin", "R"], ["Jim", "P"]], [["Jacqui", "S"], ["Pierre", "r"]]], [[["Zebedee", "p"], ["Sylvan", "s"]], [["Elly", "R"], ["Wilf", "P"]]]]
 # t = Tournament.new(a1)
 #
-# p.to_s
+# puts t
 
 class WrongNumberOfPlayersError < StandardError ; end
 class NoSuchStrategyError < StandardError ; end
@@ -48,7 +48,7 @@ class Tournament
   def play_tournament
     until(@players.length == 1)
       build_round
-      rounds[-1].games.each {|g| g.to_s}
+      rounds[-1].games.each {|g| g}
       @players = @rounds[@round - 1].winners.select {|w| w}
       @round += 1
     end

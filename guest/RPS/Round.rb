@@ -13,7 +13,7 @@
 # p4 = Player.new("Zebedee", "R")
 # r  = [p1, p2, p3, p4]
 #
-# r.to_s
+# puts r
 
 class Round
   attr_accessor :players, :games, :winners, :losers
@@ -34,7 +34,7 @@ class Round
 
   def to_s
     str = ""
-    @games.each {|g| str << g.to_s}
+    @games.each {|g| str << g}
     return str
   end
 end

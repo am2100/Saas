@@ -11,7 +11,7 @@
 # p2 = Player.new("Jacqui", "P")
 # g = Game.new(p1, p2)
 #
-# g.to_s
+# puts g
 
 class Game
 
@@ -50,7 +50,7 @@ class Game
     str = ""
     padding = "----"
     @@longest_player_name.times {|p| padding << "-"}
-    str << "#{@p1.to_s}\n" << "#{padding}> #{@winner.to_s}\n#{@p2.to_s}\n\n"
+    str << "#{@p1}\n" << "#{padding}> #{@winner}\n#{@p2}\n\n"
   end
 
 end

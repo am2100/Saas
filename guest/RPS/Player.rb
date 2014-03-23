@@ -9,7 +9,7 @@
 #
 # p = Player.new("Jim Noble", "r")
 #
-# p.to_s
+# puts p
 
 class Player 
   attr_accessor :name, :strategy

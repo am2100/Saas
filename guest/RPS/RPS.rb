@@ -20,4 +20,4 @@ a5 = [["Robin", "r"], ["Jim", "p"], ["Jacqui", "S"], ["Robin", "r"], ["Jim", "p"
 
 t = Tournament.new(a1)
 
-puts t.to_s
+puts t
